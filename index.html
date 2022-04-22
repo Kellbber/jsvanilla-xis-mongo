@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="/script.js" defer></script>
+    <script src="/scriptValidacao.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" type="image/jpg"href="./icons/logo.jpg">
+    <title>Xis do Japa</title>
+  </head>
+  <body>
+    <section class="home">
+          <header class="header">
+            <div class="row">
+              <div class="logo">
+                <img
+                  src="./icons/logo.jpg"
+                  width="70px"
+                  alt="Logo Xis do Japa"
+                  class="Logo-icon"
+                />
+                <a href="/"class="logo-tittle"> Xis do Japa </a>
+              </div>
+    
+              <div class="">
+                <div class="sacola">
+                  <input type="text" id="search-input-xis" placeholder="Digite o ID do Xis" />
+                  <button class="search-button" onclick="findByIdXis()"><i class="bi bi-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </header>
+          <section class="options">
+            <span class="msg-alert "></span>
+            <div class="btn-list-cad">
+            <a class="botao-padrao list-all"href="/">TODOS OS XIS</a>
+            <button type="button" class="botao-padrao" id="botaoAbrir" onclick="abrirModal()">CADASTRAR XIS</button>
+           </div>
+          </section>
+
+          <section class="modal-overlay" id="overlay">
+            <div class="modal">
+              <div class="modal-header">
+                <h2 id="titulo-header-modal">CADASTRAR NOVO XIS</h2>
+                <a onclick="fecharModal()" class="close-modal" >x</a>
+              </div>
+              <div class="modal-body">
+              
+                <div>
+
+                <input type="hidden" id="id">
+
+                <label id="labelSabor" for="sabor">Sabor:</label>
+                <input type="text" onchange="" name="sabor" id="sabor" required placeholder="Digite o sabor" >
+                <label id="labelPreco" for="preco">Preco:</label>
+
+                <input type="number" name="preco" id="preco" required placeholder="Digite o preço" >
+                <label id="labelDescricao" for="descricao">Descrição:</label>
+
+                <textarea type="text" name="descricao" id="descricao" required placeholder="Digite a descrição" rows="5" >  </textarea>
+                <label id="labelFoto" for="foto">Foto:</label>
+                
+                <input type="text" name="foto" id="foto" required placeholder="Use como modelo: /images/xcarne.png" >
+                <button type="submit" id="button-form-modal"onclick="submitXis()">CADASTRAR</button>
+              
+                </div>
+            </div>
+            
+            </div>
+
+          </section>
+          <section class="modal-overlay" id="overlay-delete">
+          <div class="modal">
+            <div class="modal-header">
+              <h2 id="titulo-header-modal">CONFIRMAR DELEÇÃO</h2>
+              <a onclick="fecharModalDelete()" class="close-modal" >x</a>
+            </div>
+            <div class="modal-body-delete">
+              <p>Deseja realmente apagar?</p>
+              <div class="btns_delete">
+                <button class="btn_delete_no btn_delete" onclick="fecharModalDelete()">NÃO</button>
+                <button class="btn_delete_yes btn_delete">SIM</button>
+              </div>
+            </div>
+          </div>
+          
+
+          </section>      
+      
+      <div class="Home__container">
+        <div class="xisLista" id="xisList"></div>
+      
+        <div id="XisEscolhido"></div>
+
+        </div>
+    </section>
+
+    
+  </body>
+</html>
